@@ -36,7 +36,7 @@ def get_metrics(house_url, headers, zipcode):
 
     # info in Facts and features
     Building, Calendar, Heating, Snowflake, Parking, Lot, PriceSquareFeet = '', '', '', '', '', '', ''
-    ff = soup.find('ul', class_='dpf__sc-xzpkxd-0 jHoFQf')
+    ff = soup.find('ul', class_='dpf__sc-xzpkxd-0 bqENCM')
     summary_ff = ff.get_text(separator='spsp').split('spsp')
 
     for i in range(0, len(summary_ff), 2):
@@ -100,13 +100,21 @@ def search_zipcode(zipcode, headers):
 def get_zipcodes():
     '''return zipcodes inteseted
     '''
-    return ['15215', '15201', '15224', '15232', '15206', '15208', '15213', '15217', '15207']
+    pitts_zipcodes = []
+    raw_zips = '15106, 15120, 15201, 15203, 15204, 15205, 15206, 15207, 15208, 15210, 15211, 15212, 15213, 15214, 15215, 15216, 15217, 15218, 15219, 15220, 15221, 15222, 15224, 15226, 15227, 15232, 15233, 15234, 15235, 15236, 15238, 15260, 15290'
+    for zipcode in raw_zips.split(', '):
+        # print(zipcode)
+        pitts_zipcodes.append(zipcode)
+
+    list_a = ['15206']
+    list_b = ['15215', '15201', '15224', '15232', '15206', '15208', '15213', '15217', '15207']
+    return pitts_zipcodes
 
 
 def generate_headers():
     '''return headers for srape'''
     return {
-        "cookie": 'JSESSIONID=F116D48265286F345BFD53280A243396; zguid=23|$40e68918-84fe-47a6-8069-cc2487af6845; zgsession=1|73b37f1d-84be-4a04-af1b-c282e24d19e8; _pxvid=fcdc730f-6b83-11ec-9222-647046664c6a; _pxff_rf=1; _pxff_fp=1; _pxff_bsco=1; _px3=d83da6be3935561a93174fe815211cae40cb16920c77b3fc9eca9606f41fd21b:AaMm2rblA6GBUGGRzOax4S7NsaLrH+sKCd7CaEEIsXRdF3M/LiykAB+autsUBr1HUG1DwvhUq0epucAuzlvZyw==:1000:xSzCdBw0xjDADwCFA2uzU3Z0uMrSYuBGQbtp7VsH4l7fC4ZI7HfV9sd/u3DbZXE+XUfni0hqvaiS1tHjP9KmNnKmHOdSn/9zQmF94GawOY0FkbSgSvKRtMMvJRYq6aslh0vIA2Q/K3iIJkAn5ZQBov6ujfp9IWi2bTQBlsP6lODpd0Yn8fPM9BzeDdiXL1wyd+c0jXhMLiJkpNGIFXUGbw==; _ga=GA1.2.2098024061.1641097532; _gid=GA1.2.2077016672.1641097532; zjs_user_id=null; zjs_anonymous_id="40e68918-84fe-47a6-8069-cc2487af6845"; _gat=1; __gads=ID=12ab913c518b639b:T=1641097534:S=ALNI_MavSTEHaLeJaTqM0krQHJFfLgc14Q; _gcl_au=1.1.1097772823.1641097535; KruxPixel=true; DoubleClickSession=true; __pdst=86d6f642a5d846c4a268946daecef1e6; _uetsid=081e16606b8411eca44b6dd21a145327; _uetvid=081e66c06b8411ecb2615300fe473263; _fbp=fb.1.1641097535968.904432185; _pin_unauth=dWlkPU0yUTVZbU5rTlRFdE1XVXhZaTAwWkRCakxXRXpNR1F0T1RJMk5tRXdZamM1TkRNeQ; AWSALB=agk9lKKq5vam5Ioe3FczabBG7CZhlwCQmorFTGk8YIcG675/tIMBNmPYQIvbrfJW0Z5Kn5nRbx9nRaQcFakS45lCCcXS+SgyVy6eOk+LP7jV1lUlAaYGgzqskRxu; AWSALBCORS=agk9lKKq5vam5Ioe3FczabBG7CZhlwCQmorFTGk8YIcG675/tIMBNmPYQIvbrfJW0Z5Kn5nRbx9nRaQcFakS45lCCcXS+SgyVy6eOk+LP7jV1lUlAaYGgzqskRxu; search=6|1643689539701|rect=40.48238649533691%2C-79.91380465098031%2C40.46508419146056%2C-79.98590834901974&rid=63932&disp=map&mdm=auto&p=1&sort=days&z=1&fs=1&fr=0&mmm=0&rs=0&ah=0&singlestory=0&housing-connector=0&abo=0&garage=0&pool=0&ac=0&waterfront=0&finished=0&unfinished=0&cityview=0&mountainview=0&parkview=0&waterview=0&hoadata=1&zillow-owned=0&3dhome=0&featuredMultiFamilyBuilding=0		63932						; utag_main=v_id:017e190920f4001541d2cbd75b5f05069002606100d05$_sn:1$_se:1$_ss:1$_st:1641099335735$ses_id:1641097535735;exp-session$_pn:1;exp-session$dcsyncran:1;exp-session$tdsyncran:1;exp-session$dc_visit:1$dc_event:1;exp-session$dc_region:us-east-1;exp-session$ttd_uuid:5110c0f3-ba6c-413e-8152-f1abbeeeccc6;exp-session; KruxAddition=true',
+        "cookie": 'zguid=23|$f30e8c58-cbe3-4e84-86f5-21fe338b9f7c; _ga=GA1.2.861927222.1634657795; zjs_user_id=null; zjs_anonymous_id="f30e8c58-cbe3-4e84-86f5-21fe338b9f7c"; _gcl_au=1.1.1476391709.1634657796; _pxvid=57d8e154-30f2-11ec-9973-455146757552; __pdst=39863dceec6442a18a9a094cb9764f19; _pin_unauth=dWlkPU9XWmpaR1F4Wm1NdE1UTTNZUzAwTTJZMkxUaGxNMll0Wm1JMk16WXdOek13TnpCag; zgsession=1|0d271aa8-31a5-46ca-ae04-ce6668f6165a; _gid=GA1.2.1337674931.1641414024; KruxPixel=true; DoubleClickSession=true; utag_main=v_id:017c99327f2700af651b1bdd5aa005078001707000ac2$_sn:3$_se:1$_ss:1$_st:1641415824738$dc_visit:3$ses_id:1641414024738;exp-session$_pn:1;exp-session$dcsyncran:1;exp-session$tdsyncran:1;exp-session$dc_event:1;exp-session$dc_region:us-east-1;exp-session; JSESSIONID=7D7641E3C097327805B9CD912889D1CB; KruxAddition=true; g_state={"i_p":1642020713793,"i_l":3}; _gat=1; _pxff_bsco=1; _px3=bd4de2c7100cafa5fb13a762bc9972fd8844e0180b34f87c88adeba824379aa3:dioCp4uf8d+auq1SQJEygsNeVZOalQ9ZO3H1b5HNWtw+VSiTmEty040kzYfqVRa5DIlTXLlCfQ8JGhxCwB/aIQ==:1000:TWCeLfVJk34cJyh0t3H5T0NVQRflwxs4tQt7m1Q57+bBcne7hHlRbShVGHTz5AXHAETWB3z7VphMLa09iOihAwdJreUo/lQS+RpktUv9+HV32kweszAqxIBvfiM2Z6yzryOL7EPoT8zlDJD11I0gukncA8cSzuvNnBuGic+i9WhoggdqlaM2vBzbC6DOAB/QHlEN6blNZiBOhlDUgjUW0w==; _uetsid=ea3867306e6411ec8095cdc9a3e32301; _uetvid=5802f71030f211ecb102e739443dc102; AWSALB=4C3OouS0LXesagt8Xs5cx4fOrBSa2fx5d74LkKtk7HmdC6zS+xP9D+j4zkYfqLOmRsG9YWDd+2LtxiS56o2WSX7huRQM/y+hRyWvyCcWczSod0HPdEQg1kVDFSLd; AWSALBCORS=4C3OouS0LXesagt8Xs5cx4fOrBSa2fx5d74LkKtk7HmdC6zS+xP9D+j4zkYfqLOmRsG9YWDd+2LtxiS56o2WSX7huRQM/y+hRyWvyCcWczSod0HPdEQg1kVDFSLd; search=6|1644008558257|rect=40.486061712683%2C-79.78374481201172%2C40.39277753915928%2C-80.08655548095703&disp=map&mdm=auto&p=1&z=1&beds=2-&days=90&type=house%2Cmultifamily%2Ctownhouse&price=0-500000&mp=0-1701&fs=1&fr=0&mmm=0&rs=0&ah=0&singlestory=0&housing-connector=0&abo=0&garage=0&pool=0&ac=0&waterfront=0&finished=0&unfinished=0&cityview=0&mountainview=0&parkview=0&waterview=0&hoadata=1&zillow-owned=0&3dhome=0&featuredMultiFamilyBuilding=0		43						',
         "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
     }
 

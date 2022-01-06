@@ -48,6 +48,8 @@ Set up user reminder and daily fresh for data and model: 2 days
 
 | Date\Task | 1/1 | 1/2 | 1/3 | 1/4 | 1/5 | 1/6 | 1/7 | 1/8 |
 |-----------|-----|-----|-----|-----|-----|-----|-----|-----|
-| Plan | Zillow API |
-| Process | ongoing |
+| Plan | Zillow API | Web scrape | EDA | EDA | EDA, Model | Implement reminder | Set Server | deploy model |
+| Process | ongoing | finished | unfinished | in process
 | Result | API deprecating |
+
+遇到了新的情况。爬虫又不能用了。感觉得写一个更加靠谱的爬虫。我觉得selenium是个不错的选项，正好昨天学习了，今天就用起来吧。

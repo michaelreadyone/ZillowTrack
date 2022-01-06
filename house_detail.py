@@ -33,8 +33,9 @@ def get_metrics(house_url):
 
     Building, Calendar, Heating, Snowflake, Parking, Lot, PriceSquareFeet = '', '', '', '', '', '', ''
 
-    ff = soup.find('ul', class_='dpf__sc-xzpkxd-0 jHoFQf')
+    ff = soup.find('ul', class_='dpf__sc-xzpkxd-0 bqENCM')
     summary_ff = ff.get_text(separator='spsp').split('spsp')
+    print(summary_ff)
     ff_dict = {}
     for i in range(0, len(summary_ff), 2):
         if summary_ff[i] == 'Building':
@@ -56,3 +57,7 @@ def get_metrics(house_url):
                    Calendar, Heating, Snowflake, Parking, Lot, PriceSquareFeet, house_url]
 
     return return_list
+
+if __name__ == '__main__':
+    print('good')
+    get_metrics('dd')
